@@ -71,12 +71,19 @@
 							className="animated"
 							size={10 + i * 0.25}
 							strokeDashoffset={Math.random() * n * 5}
-							strokeDasharray={log(`${n - i + 1}, ${5 + i * 5}`)}
+							strokeDasharray={`${n - i + 1}, ${5 + i * 5}`}
 							strokeLinecap="round"
 							stroke={`rgba(0, 0, 0, ${(1 - i / n) * 0.5})`} />
 					))}
 
 					<Heart size={9.75} />
+
+					<text
+						x={CenterX}
+						y={Height - 50}
+						textAnchor="middle"
+						dominantBaseline="central"
+						style={{ fontFamily: "Arial, Helvetica, sans-serif", fontSize: 11 }}>ЛС</text>
 
 				</svg>
 			);
@@ -111,6 +118,16 @@
 		function log(value) {
 			console.log(value);
 			return value;
+		}
+
+		function exportToSvg() {
+			const base64doc = btoa(unescape(encodeURIComponent(document.querySelector("svg").outerHTML)));
+			const a = document.createElement("a");
+			const e = new MouseEvent("click");
+
+			a.download = "download.svg";
+			a.href = "data:text/html;base64," + base64doc;
+			a.dispatchEvent(e);
 		}
 
 	</script>
