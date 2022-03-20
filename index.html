@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>heart</title>
+
+	<style>
+		html {
+			height: 100%;
+		}
+
+		body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			background: #000;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+		}
+	</style>
+</head>
+
+<body>
+
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+	<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+	<div id="root"></div>
+
+	<script type="text/babel">
+
+		const Width = 620;
+		const Height = 874;
+		const CenterX = Width / 2;
+		const CenterY = Height / 2;
+		const ForegroundColor = "black";
+		const BackgroundColor = "white";
+
+		ReactDOM.render(<App />, document.querySelector("#root"));
+
+		function App() {
+			return (
+				<svg version="1.1" width={Width} height={Height} xmlns="http://www.w3.org/2000/svg">
+
+					<rect width="100%" height="100%" fill={BackgroundColor} />
+					<circle cx={CenterX} cy={CenterY} r={100} fill={ForegroundColor} />
+
+				</svg>
+			);
+		}
+
+	</script>
+
+</body>
+
+</html>
